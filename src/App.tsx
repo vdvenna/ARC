@@ -1,20 +1,42 @@
-function App() {
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BookingsProvider } from "./BookingsContext"
+import { PhoneFrame, TabLayout, PlainShell } from "./components/Layouts"
+import LandingScreen from "./screens/LandingScreen"
+import StudentLoginScreen from "./screens/StudentLoginScreen"
+import HomeScreen from "./screens/HomeScreen"
+import GroupFitnessScreen from "./screens/GroupFitnessScreen"
+import ClubSportsScreen from "./screens/ClubSportsScreen"
+import MyReservationsScreen from "./screens/MyReservationsScreen"
+import NewReservationScreen from "./screens/NewReservationScreen"
+import CourtReservationScreen from "./screens/CourtReservationScreen"
+import ReservationConfirmedScreen from "./screens/ReservationConfirmedScreen"
+
+export default function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-      <h1 className="text-4xl font-bold tracking-tight">ARC</h1>
-      <p className="text-gray-500 dark:text-gray-400">
-        Vite + React + TypeScript + Tailwind CSS
-      </p>
-      <a
-        className="rounded-md bg-indigo-600 px-4 py-2 font-medium text-white transition-colors hover:bg-indigo-500"
-        href="https://vite.dev"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Get started
-      </a>
-    </div>
+    <BookingsProvider>
+      <HashRouter>
+        <Routes>
+          <Route element={<PhoneFrame />}>
+            <Route index element={<LandingScreen />} />
+            <Route path="student-login" element={<StudentLoginScreen />} />
+
+            <Route element={<TabLayout />}>
+              <Route path="home" element={<HomeScreen />} />
+              <Route path="reservations" element={<MyReservationsScreen />} />
+            </Route>
+
+            <Route element={<PlainShell />}>
+              <Route path="group-fitness" element={<GroupFitnessScreen />} />
+              <Route path="club-sports" element={<ClubSportsScreen />} />
+              <Route path="reservations/new" element={<NewReservationScreen />} />
+              <Route path="reservations/new/pickleball" element={<CourtReservationScreen />} />
+              <Route path="reservations/confirmed" element={<ReservationConfirmedScreen />} />
+            </Route>
+
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </BookingsProvider>
   )
 }
-
-export default App
