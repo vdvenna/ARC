@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import mascot from "../assets/mascot-volleyball.png"
 
 export default function LandingScreen() {
   const navigate = useNavigate()
@@ -15,7 +16,7 @@ export default function LandingScreen() {
       </header>
 
       <main className="landing-body">
-        <div className="image-placeholder" role="img" aria-label="Image placeholder" />
+        <img className="landing-mascot" src={mascot} alt="UCI anteater mascot" />
 
         <div className="actions">
           <button type="button" className="btn-student" onClick={() => navigate("/student-login")}>

@@ -1,26 +1,35 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "../components/Icon"
+import Avatar from "../components/Avatar"
 import DrawerMenu from "../components/DrawerMenu"
+import groupFitness from "../assets/icons/group-fitness.png"
+import programs from "../assets/icons/programs.png"
+import notifications from "../assets/icons/notifications.png"
+import reservations from "../assets/icons/reservations.png"
+import intramurals from "../assets/icons/intramurals.png"
+import clubCatalogue from "../assets/icons/club-catalogue.png"
+import outdoorAdventures from "../assets/icons/outdoor-adventures.png"
+import joinOpenCourt from "../assets/icons/join-open-court.png"
+import fitnessPasses from "../assets/icons/fitness-passes.png"
+import favorites from "../assets/icons/favorites.png"
+import liveCourtStatus from "../assets/icons/live-court-status.png"
 
-const TILES = [
-  "GROUP FITNESS",
-  "PROGRAMS",
-  "RESERVATIONS",
-  "NOTIFICATIONS",
-  "INTRAMURALS",
-  "CLUB CATALOGUE",
-  "OUTDOOR ADVENTURES",
-  "FITNESS PASSES",
-  "FAVORITES",
-  "Join an Open Court",
+type Tile = { label: string; icon: string; route?: string }
+
+const TILES: Tile[] = [
+  { label: "GROUP FITNESS", icon: groupFitness, route: "/group-fitness" },
+  { label: "PROGRAMS", icon: programs },
+  { label: "NOTIFICATIONS", icon: notifications },
+  { label: "RESERVATIONS", icon: reservations, route: "/reservations" },
+  { label: "INTRAMURALS", icon: intramurals },
+  { label: "CLUB CATALOGUE", icon: clubCatalogue, route: "/club-sports" },
+  { label: "OUTDOOR ADVENTURES", icon: outdoorAdventures },
+  { label: "JOIN AN OPEN COURT", icon: joinOpenCourt },
+  { label: "FITNESS PASSES", icon: fitnessPasses },
+  { label: "FAVORITES", icon: favorites },
+  { label: "LIVE COURT STATUS", icon: liveCourtStatus },
 ]
-
-const TILE_ROUTES: Record<string, string> = {
-  "GROUP FITNESS": "/group-fitness",
-  "CLUB CATALOGUE": "/club-sports",
-  RESERVATIONS: "/reservations",
-}
 
 export default function HomeScreen() {
   const navigate = useNavigate()
@@ -40,22 +49,21 @@ export default function HomeScreen() {
             Recreation
           </span>
         </div>
-        <div className="avatar" role="img" aria-label="Profile image placeholder" />
+        <Avatar />
       </header>
 
       <div className="tiles">
-        {TILES.map((label) => (
+        {TILES.map((t) => (
           <button
             type="button"
-            key={label}
+            key={t.label}
             className="tile"
             onClick={() => {
-              const to = TILE_ROUTES[label]
-              if (to) navigate(to)
+              if (t.route) navigate(t.route)
             }}
           >
-            <span className="tile-box" />
-            <span className="tile-label">{label}</span>
+            <img className="tile-img" src={t.icon} alt="" />
+            <span className="tile-label">{t.label}</span>
           </button>
         ))}
       </div>

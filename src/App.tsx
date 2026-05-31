@@ -10,6 +10,7 @@ import MyReservationsScreen from "./screens/MyReservationsScreen"
 import NewReservationScreen from "./screens/NewReservationScreen"
 import CourtReservationScreen from "./screens/CourtReservationScreen"
 import ReservationConfirmedScreen from "./screens/ReservationConfirmedScreen"
+import MemberBarcodeScreen from "./screens/MemberBarcodeScreen"
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
               <Route path="reservations/new" element={<NewReservationScreen />} />
               <Route path="reservations/new/pickleball" element={<CourtReservationScreen />} />
               <Route path="reservations/confirmed" element={<ReservationConfirmedScreen />} />
+              <Route path="member" element={<MemberBarcodeScreen />} />
             </Route>
 
             <Route path="*" element={<Navigate to="/" replace />} />

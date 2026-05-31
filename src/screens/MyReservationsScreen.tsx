@@ -12,10 +12,21 @@ export default function MyReservationsScreen() {
       <ScreenHeader title="Reservations" onBack={() => navigate("/home")} />
 
       <div className="reservations-body">
+        <button
+          type="button"
+          className="book-new-btn"
+          onClick={() => navigate("/reservations/new")}
+        >
+          <Icon name="plus" size={20} />
+          Book a New Reservation
+        </button>
+
         <div className="card">
-          <h2 className="bookings-title">Bookings</h2>
+          <h2 className="bookings-title">My Bookings</h2>
           {bookings.length === 0 ? (
-            <p className="bookings-empty">No bookings yet. Tap + to reserve a court.</p>
+            <p className="bookings-empty">
+              No bookings yet. Tap Book a New Reservation to reserve a court.
+            </p>
           ) : (
             <table className="bookings">
               <thead>
@@ -52,16 +63,9 @@ export default function MyReservationsScreen() {
         <p className="reservations-hint">
           Tap any reservation to view details or check in
         </p>
-      </div>
 
-      <button
-        type="button"
-        className="fab"
-        aria-label="Add reservation"
-        onClick={() => navigate("/reservations/new")}
-      >
-        <Icon name="plus" size={28} />
-      </button>
+        <h2 className="parties-title">My Upcoming Parties</h2>
+      </div>
     </div>
   )
 }

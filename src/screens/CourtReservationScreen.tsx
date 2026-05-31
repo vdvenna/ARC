@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Icon from "../components/Icon"
+import Avatar from "../components/Avatar"
+import pickleballMascot from "../assets/mascot-pickleball.png"
 import { useBookings } from "../BookingsContext"
 
 export type ReservationDetails = {
@@ -73,11 +75,11 @@ export default function CourtReservationScreen() {
             <Icon name="info" size={20} />
           </button>
         </div>
-        <div className="header-avatar" role="img" aria-label="Profile image placeholder" />
+        <Avatar className="header-avatar" />
       </header>
 
       <div className="info-banner">
-        <div className="info-icon" role="img" aria-label="Image placeholder" />
+        <img className="info-icon" src={pickleballMascot} alt="Pickleball anteater" />
         <div>
           <p className="info-text">
             Reservations open 2 days in advance. Courts available for UCI students, ARC

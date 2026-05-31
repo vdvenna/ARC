@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --uci-blue: #1f5b9c;
+  --uci-blue: #0064a4;
   --uci-navy: #1b3b6b;
-  --uci-gold: #eec84b;
+  --uci-gold: #ffd200;
 }
 
 html,
@@ -75,10 +75,10 @@ body {
   padding: 3.5rem 2rem 0;
 }
 
-.image-placeholder {
-  width: 8rem;
-  height: 8rem;
-  background: #d1d5db;
+.landing-mascot {
+  width: 9rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .actions {
@@ -222,8 +222,8 @@ body {
   background: var(--uci-gold);
   font: inherit;
   font-size: 1rem;
-  font-weight: 500;
-  color: #1f2937;
+  font-weight: 700;
+  color: var(--uci-navy);
   cursor: pointer;
 }
 
@@ -310,15 +310,29 @@ body {
   right: 1.25rem;
   width: 2.75rem;
   height: 2.75rem;
+  padding: 0;
   border-radius: 9999px;
-  background: #cbd0d6;
+  background: var(--uci-blue);
+  border: 2.5px solid #000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  padding: 2px;
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .tiles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem 0.5rem;
-  padding: 1.75rem 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem 0.25rem;
+  padding: 1.5rem 0.75rem;
 }
 
 .tile {
@@ -332,11 +346,43 @@ body {
   cursor: pointer;
 }
 
-.tile-box {
-  width: 4.5rem;
-  height: 4.5rem;
-  border: 1.5px solid #1f2937;
-  border-radius: 0.5rem;
+.tile-img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+}
+
+/* Member ID / Barcode */
+.member-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 3rem 1.5rem;
+}
+
+.member-pfp {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 9999px;
+  border: 3px solid #000;
+  background: var(--uci-blue);
+  padding: 4px;
+  box-sizing: border-box;
+  object-fit: contain;
+  object-position: center;
+}
+
+.member-name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--uci-navy);
+}
+
+.barcode {
+  width: 80%;
+  height: 5rem;
 }
 
 .tile-label {
@@ -461,8 +507,12 @@ body {
   right: 1.25rem;
   width: 2.75rem;
   height: 2.75rem;
+  padding: 0;
   border-radius: 9999px;
-  background: #cbd0d6;
+  background: var(--uci-blue);
+  border: 2.5px solid #000;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 /* Group Fitness calendar */
@@ -645,21 +695,26 @@ body {
   color: #9ca3af;
 }
 
-.fab {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 5.5rem;
+.book-new-btn {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 9999px;
-  background: var(--uci-blue);
+  gap: 0.4rem;
+  margin: 0 0 1.25rem auto;
+  padding: 0.75rem 1.1rem;
+  border-radius: 0.6rem;
+  background: var(--uci-gold);
   border: 0;
-  color: var(--uci-gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--uci-navy);
   cursor: pointer;
-  box-shadow: 0 6px 16px rgb(0 0 0 / 0.25);
+}
+
+.parties-title {
+  margin: 1.75rem 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--uci-blue);
 }
 
 /* Club Sports list */
@@ -717,10 +772,15 @@ body {
 
 .info-icon {
   flex-shrink: 0;
-  width: 3.5rem;
-  height: 3.5rem;
+  box-sizing: border-box;
+  width: 4rem;
+  height: 4rem;
+  padding: 4px;
   border-radius: 9999px;
-  background: var(--uci-gold);
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  object-fit: contain;
+  object-position: center;
 }
 
 .info-text {

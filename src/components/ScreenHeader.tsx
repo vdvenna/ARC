@@ -1,4 +1,5 @@
 import Icon from "./Icon"
+import Avatar from "./Avatar"
 
 type Props = {
   title: string
@@ -12,7 +13,7 @@ export default function ScreenHeader({ title, onBack }: Props) {
         <Icon name="arrow-left" size={26} />
       </button>
       <h1 className="header-title">{title}</h1>
-      <div className="header-avatar" role="img" aria-label="Profile image placeholder" />
+      <Avatar className="header-avatar" />
     </header>
   )
 }
