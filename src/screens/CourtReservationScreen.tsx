@@ -14,9 +14,9 @@ export type ReservationDetails = {
 }
 
 const DATES = [
-  { id: "fri", top: "Fri", bottom: "May 1", full: "Friday, May 1" },
-  { id: "sat", top: "Sat", bottom: "May 2", full: "Saturday, May 2" },
-  { id: "sun", top: "Sun", bottom: "May 3", full: "Sunday, May 3" },
+  { id: "mon", top: "Mon", bottom: "June 1", full: "Monday, June 1" },
+  { id: "tue", top: "Tue", bottom: "June 2", full: "Tuesday, June 2" },
+  { id: "wed", top: "Wed", bottom: "June 3", full: "Wednesday, June 3" },
 ]
 
 const COURTS = [
@@ -40,7 +40,7 @@ const SLOTS: Slot[] = [
 export default function CourtReservationScreen() {
   const navigate = useNavigate()
   const { addBooking } = useBookings()
-  const [dateId, setDateId] = useState("fri")
+  const [dateId, setDateId] = useState("mon")
   const [court, setCourt] = useState("Earliest Available Court")
   const [slot, setSlot] = useState<string | null>(null)
 
@@ -127,7 +127,7 @@ export default function CourtReservationScreen() {
       </div>
 
       <div className="slot-list">
-        {SLOTS.map((s) => {
+        {SLOTS.filter((s) => court !== "Earliest Available Court" || s.available).map((s) => {
           const selected = slot === s.time
           return (
             <div className="slot" key={s.time}>

@@ -1,11 +1,26 @@
 import { useNavigate } from "react-router-dom"
 import ScreenHeader from "../components/ScreenHeader"
 import Icon from "../components/Icon"
-import { useBookings } from "../BookingsContext"
+import { useBookings, type Booking } from "../BookingsContext"
+
+const MONTHS = [
+  "january", "february", "march", "april", "may", "june",
+  "july", "august", "september", "october", "november", "december",
+]
+
+// Sort key from date in "Thu, June 4"
+function dateKey(b: Booking): number {
+  const datePart = b.day.includes(",") ? b.day.split(",")[1].trim() : b.day.trim()
+  const [monthName, dayStr] = datePart.split(/\s+/)
+  const month = MONTHS.indexOf((monthName || "").toLowerCase())
+  const day = parseInt(dayStr, 10) || 0
+  return month * 31 + day
+}
 
 export default function MyReservationsScreen() {
   const navigate = useNavigate()
   const { bookings, cancelBooking } = useBookings()
+  const sortedBookings = [...bookings].sort((a, b) => dateKey(a) - dateKey(b))
 
   return (
     <div className="reservations">
@@ -38,7 +53,7 @@ export default function MyReservationsScreen() {
                 </tr>
               </thead>
               <tbody>
-                {bookings.map((b) => (
+                {sortedBookings.map((b) => (
                   <tr key={b.id}>
                     <td>{b.name}</td>
                     <td>{b.day}</td>

@@ -11,8 +11,8 @@ type BookingsValue = {
 const BookingsContext = createContext<BookingsValue | null>(null)
 
 const INITIAL: Booking[] = [
-  { id: "seed-1", name: "Pickleball - Court 3", day: "Fri, Nov 7", time: "8:00 - 9:00 AM" },
-  { id: "seed-2", name: "Pickleball - Court 3", day: "Fri, Nov 7", time: "9:00 - 10:00 AM" },
+  { id: "seed-1", name: "Pickleball - Court 3", day: "Thu, June 4", time: "8:00 - 9:00 AM" },
+  { id: "seed-2", name: "Pickleball - Court 3", day: "Fri, June 5", time: "9:00 - 10:00 AM" },
 ]
 
 export function BookingsProvider({ children }: { children: ReactNode }) {
