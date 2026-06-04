@@ -23,7 +23,11 @@ export default function StudentLoginScreen() {
       >
         <h2 className="card-title">Login with your UCInetID</h2>
 
+        <label className="sr-only" htmlFor="netid">
+          UCInetID
+        </label>
         <input
+          id="netid"
           className="field"
           type="text"
           value={netId}
@@ -31,7 +35,11 @@ export default function StudentLoginScreen() {
           placeholder="UCInetID"
           autoComplete="username"
         />
+        <label className="sr-only" htmlFor="password">
+          Password
+        </label>
         <input
+          id="password"
           className="field"
           type="password"
           value={password}

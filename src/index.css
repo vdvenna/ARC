@@ -124,7 +124,7 @@ body {
 .signup-prompt {
   margin: 0;
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .signup-link {
@@ -156,7 +156,7 @@ body {
   border: 0;
   font-size: 1.5rem;
   line-height: 1;
-  color: #9ca3af;
+  color: #6b7280;
   cursor: pointer;
 }
 
@@ -203,7 +203,7 @@ body {
 }
 
 .field::placeholder {
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .field:focus {
@@ -263,7 +263,7 @@ body {
   font: inherit;
   font-size: 0.7rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: #6b7280;
   cursor: pointer;
 }
 
@@ -601,7 +601,7 @@ body {
   padding: 2rem 1.25rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .class-row {
@@ -622,7 +622,7 @@ body {
 .class-loc {
   flex: 1;
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .class-time {
@@ -649,7 +649,7 @@ body {
   margin: 0;
   padding: 0.5rem 0;
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .bookings {
@@ -692,7 +692,7 @@ body {
   margin: 1.25rem 0 0;
   text-align: center;
   font-size: 0.85rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .book-new-btn {
@@ -740,7 +740,7 @@ body {
 
 .sport-row .chev {
   display: flex;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 /* Court reservation header extras */
@@ -793,7 +793,7 @@ body {
 .info-sub {
   margin: 0.5rem 0 0;
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 /* Live court status */
@@ -927,7 +927,7 @@ body {
 .slot-sub {
   margin-top: 0.15rem;
   font-size: 0.78rem;
-  color: #9ca3af;
+  color: #6b7280;
 }
 
 .slot-btn {
@@ -1097,4 +1097,25 @@ body {
   font-weight: 700;
   color: var(--uci-blue);
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid #fff;
+  box-shadow: 0 0 0 4px var(--uci-blue);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }

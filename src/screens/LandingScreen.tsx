@@ -16,6 +16,7 @@ export default function LandingScreen() {
       </header>
 
       <main className="landing-body">
+        <h1 className="sr-only">UCI Campus Recreation</h1>
         <img className="landing-mascot" src={mascot} alt="UCI anteater mascot" />
 
         <div className="actions">
